@@ -1,0 +1,160 @@
+***** FCFS Scheduling *****
+t = 0
+CPU: Running process 0 (CPU burst = remaining 10)
+Ready queue: 0-1
+
+t = 10
+CPU: Finishing process 0; loading process 1 (CPU burst = 3)
+Ready queue: 1-2-3-4
+
+t = 20
+CPU: Finishing process 2; loading process 3 (CPU burst = 1)
+Ready queue: 3-4
+
+*********************************************************
+FCFS Summary (WT = wait time, TT = turnaround time):
+
+PID		WT		TT
+0		0		10
+1		11		13
+2		12		18
+3		17		17
+4		16		20
+AVG		10.2	15.6
+
+Process sequence: 0-1-2-3-4
+Context switches: 5
+
+
+***** SJF Scheduling *****
+t = 0
+CPU: Loading process 0 (CPU burst = 10)
+Ready queue: 1-0
+
+t = 10
+CPU: Finishing process 2; loading process 3 (CPU Burst = 1 )
+Ready queue: 3-4-0
+
+t = 20
+CPU: Running process 0 (remaining CPU burst = 6)
+Ready queue: empty
+
+*********************************************************
+SJF Summary (WT = wait time, TT = turnaround time):
+
+PID		WT		TT
+0		16		26
+1		0		3
+2		1		8
+3		6		7
+4		5		10
+AVG		5.6	10.8
+
+Process sequence:  1-2-3-4-0-
+Context switches:  5
+
+***** STCF Scheduling *****
+t = 0
+CPU: Loading process 1 (CPU burst = 3)
+Ready queue: 1
+
+t = 10
+CPU: Running process 2 (remaining CPU burst = 1)
+Ready queue: 4-0
+
+t = 20
+CPU: Running process 0 (remaining CPU burst = 6)
+Ready queue: empty
+
+*********************************************************
+STCF Summary (WT = wait time, TT = turnaround time):
+
+PID		WT		TT
+0		16		26
+1		0		3
+2		2		9
+3		0		1
+4		5		10
+AVG		4.6	9.8
+
+Process sequence:  1-2-3-2-4-0-
+Context switches:  6
+
+
+***** Round Robin Scheduling ***** 
+t = 0
+CPU: Loading process 0 (CPU burst = 10)
+Ready queue: 0-1
+ 
+t = 10
+CPU: Finishing process 1 (remaining CPU burst = 0)CPU: Loading process 4(CPU burst = 5)
+Ready queue: 4-2-0
+
+ 
+t = 20
+CPU: Preempting process 2 (remaining CPU burst = 1)CPU: Loading process 0 (CPU burst = 4)
+Ready queue: 0-4
+
+*********************************************************
+Round robin Summary (WT = wait time, TT = turnaround time):
+
+PID		WT		TT
+0		16		26
+1		7		10
+2		15		22
+3		4		5
+4		12		17
+AVG		10.8	16
+
+Process sequence:  0-1-2-0-3-1-4-2-0-4-2-0-4-2-0-
+Context switches:  15
+
+***** Priority Scheduling *****
+t = 0
+CPU: Loading process 0 (CPU burst = 10)
+Ready queue: 1
+
+t = 10
+CPU: Finishing process 0; loading process 2 (CPU burst = 7)
+Ready queue: 3-4-1
+
+t = 20
+CPU: Running process 4 (CPU burst = remaining 3)
+Ready queue: 1
+
+
+*********************************************************
+Priority Summary (WT = wait time, TT = turnaround time):
+
+PID		WT		TT
+0		0		10
+1		23		26
+2		8		15
+3		13		14
+4		12		17
+AVG		11.2	16.4
+
+Process sequence: 0-2-3-4-1
+Context switches: 5
+
+
+***** OVERALL SUMMARY *****
+
+Wait Time Comparison
+1 STCF            4.6
+2 SJF             5.6
+3 FCFS           10.2
+4 Round robin    10.8
+5 Priority       11.2
+Turnaround Time Comparison
+1 STCF            9.8
+2 SJF            10.8
+3 FCFS           15.6
+4 Round robin      16
+5 Priority       16.4
+Context Switch Comparison
+1 SJF               5
+2 Priority          5
+3 FCFS              5
+4 STCF              6
+5 Round robin      15
