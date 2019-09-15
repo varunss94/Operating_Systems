@@ -8,7 +8,7 @@ Project Details: This project shows multiprocessing in action. It involes creati
 
 
 How to run the program? 
-1. Open Linux terminal 5 creates
+1. Open Linux terminal
 2. Navigate to the location where the program and the related files are stored.
 3. Enter Command ./program_multiprocessing *enter a number*  - Example ./program_multiprocessing 5 (Here 5 creates 5 child processes) 
 
